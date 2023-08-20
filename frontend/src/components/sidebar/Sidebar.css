@@ -1,0 +1,35 @@
+.sidebar-container {
+  position: fixed;
+  background-color: rgb(11, 22, 59);
+  width: 15rem;
+  height: 100%;
+  z-index: 2;
+  color: white;
+  align-items: center;
+  text-align: center;
+}
+
+.sidebar-header {
+  margin-bottom: 10rem;
+}
+
+.sidebar-content > h3 {
+  color: rgb(205, 25, 179);
+}
+
+.sidebar-categories h3 {
+  padding: 10px;
+  margin: 5px;
+}
+
+.sidebar-categories h3:hover {
+  cursor: pointer;
+  background: linear-gradient(90deg, rgb(205, 25, 179), transparent);
+}
+
+.sidebar-container footer {
+  position: absolute;
+  width: 10rem;
+  bottom: 2rem;
+  left: calc(50% - 5rem);
+}
