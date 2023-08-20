@@ -17,14 +17,25 @@
   color: rgb(205, 25, 179);
 }
 
-.sidebar-categories h3 {
-  padding: 10px;
-  margin: 5px;
+.sidebar-categories a {
+  display: flex;
+  align-items: center;
+  color: white;
 }
 
-.sidebar-categories h3:hover {
+.sidebar-categories a:hover {
   cursor: pointer;
-  background: linear-gradient(90deg, rgb(205, 25, 179), transparent);
+  background: linear-gradient(90deg, rgba(205, 25, 178, 0.32), transparent);
+}
+
+.active-bar {
+  background: rgb(205, 25, 178);
+}
+
+.sidebar-icon {
+  font-size: 1.7rem;
+  margin-left: 10px;
+  margin-right: 1rem;
 }
 
 .sidebar-container footer {
