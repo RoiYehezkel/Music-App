@@ -1,46 +1,15 @@
 .sidebar-container {
-  position: fixed;
-  background-color: rgb(11, 22, 59);
-  width: 15rem;
+  width: 100px;
   height: 100%;
-  z-index: 2;
-  color: white;
-  align-items: center;
-  text-align: center;
-}
-
-.sidebar-header {
-  margin-bottom: 10rem;
-}
-
-.sidebar-content > h3 {
-  color: rgb(205, 25, 179);
-}
-
-.sidebar-categories a {
   display: flex;
   align-items: center;
-  color: white;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.sidebar-categories a:hover {
-  cursor: pointer;
-  background: linear-gradient(90deg, rgba(205, 25, 178, 0.32), transparent);
-}
-
-.active-bar {
-  background: rgb(205, 25, 178);
-}
-
-.sidebar-icon {
-  font-size: 1.7rem;
-  margin-left: 10px;
-  margin-right: 1rem;
-}
-
-.sidebar-container footer {
-  position: absolute;
-  width: 10rem;
-  bottom: 2rem;
-  left: calc(50% - 5rem);
+.profile-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 20px;
+  margin-top: 20px;
 }

@@ -1,10 +1,10 @@
 import "./App.css";
-import Sidebar from "./components/sidebar/Sidebar";
+import Home from "./screens/home/Home";
 
 function App() {
   return (
-    <div className="App">
-      <Sidebar />
+    <div>
+      <Home />
     </div>
   );
 }
