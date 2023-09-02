@@ -1,20 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Sidebar.css";
-import SidebarButton from "../buttons/SidebarButton";
+import SidebarButton from "./SidebarButton";
 import { MdFavorite } from "react-icons/md";
 import { FaGripfire, FaPlay } from "react-icons/fa";
 import { FaSignOutAlt } from "react-icons/fa";
 import { IoLibrary } from "react-icons/io5";
 import { MdSpaceDashboard } from "react-icons/md";
+import apiClient from "../../spotify";
 
 const Sidebar: React.FC = () => {
+  const [image, setImage] = useState(
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdLAY3C19kL0nV2bI_plU3_YFCtra0dpsYkg&usqp=CAU"
+  );
+
+  useEffect(() => {
+    apiClient.get("me").then((response) => {
+      setImage(response.data.images[0].url);
+    });
+  }, []);
+
   return (
     <div className="sidebar-container">
-      <img
-        src="./assets/images/profile.jpeg"
-        className="profile-img"
-        alt="profile"
-      />
+      <img src={image} className="profile-img" alt="profile" />
       <div>
         <SidebarButton title="Feed" to="/feed" icon={<MdSpaceDashboard />} />
         <SidebarButton title="Trending" to="/trending" icon={<FaGripfire />} />
