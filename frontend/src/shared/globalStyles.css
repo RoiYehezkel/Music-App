@@ -12,3 +12,7 @@
   border-radius: 30px;
   display: flex;
 }
+
+.flex {
+  display: flex;
+}
