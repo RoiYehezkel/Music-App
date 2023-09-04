@@ -6,7 +6,7 @@ interface artistType {
   name: string;
 }
 
-export interface songCardType {
+export interface albumType {
   album: {
     images: albumImageType[];
     name: string;

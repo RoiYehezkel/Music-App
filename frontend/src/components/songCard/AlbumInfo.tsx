@@ -1,8 +1,8 @@
 import React from "react";
 import "./AlbumInfo.css";
-import { songCardType } from "../../types/types";
+import { albumType } from "../../types/types";
 
-const AlbumInfo: React.FC<songCardType> = ({ album }) => {
+const AlbumInfo: React.FC<albumType> = ({ album }) => {
   const artists: string[] = [];
   album?.artists?.forEach((element) => {
     artists.push(element.name);

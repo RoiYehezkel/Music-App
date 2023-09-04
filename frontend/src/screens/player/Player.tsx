@@ -4,12 +4,12 @@ import { useLocation } from "react-router-dom";
 import apiClient from "../../spotify";
 import SongCard from "../../components/songCard/SongCard";
 import Queue from "../../components/queue/Queue";
-import { songCardType } from "../../types/types";
+import { albumType } from "../../types/types";
 
 const Player: React.FC = () => {
   const location = useLocation();
   const [tracks, setTracks] = useState([]);
-  const [currentTrack, setCurrentTrack] = useState<songCardType>({
+  const [currentTrack, setCurrentTrack] = useState<albumType>({
     album: {
       images: [],
       name: "",

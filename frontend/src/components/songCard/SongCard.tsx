@@ -2,9 +2,9 @@ import React from "react";
 import "./SongCard.css";
 import AlbumImage from "./AlbumImage";
 import AlbumInfo from "./AlbumInfo";
-import { songCardType } from "../../types/types";
+import { albumType } from "../../types/types";
 
-const SongCard: React.FC<songCardType> = (props) => {
+const SongCard: React.FC<albumType> = (props) => {
   return (
     <div className="songCard-body">
       <AlbumImage url={props.album?.images[0]?.url} />
