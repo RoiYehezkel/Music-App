@@ -1,5 +1,6 @@
 .albumImage {
-  width: 80%;
+  /* width: 80%; */
+  width: 300px;
   align-items: center;
   justify-content: center;
   position: relative;
@@ -15,7 +16,7 @@
 .albumImage-shadow {
   -webkit-filter: blur(10px);
   filter: blur(10px);
-  width: 90%;
+  /* width: 90%; */
   position: absolute;
   z-index: -1;
   top: 20px;

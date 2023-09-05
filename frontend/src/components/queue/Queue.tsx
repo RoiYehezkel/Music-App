@@ -1,8 +1,8 @@
 import React from "react";
 import "./Queue.css";
 
-function Queue() {
-  return <div>Queue</div>;
-}
+const Queue: React.FC = () => {
+  return <div className="queue-container flex">queue</div>;
+};
 
 export default Queue;
