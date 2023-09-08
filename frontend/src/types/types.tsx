@@ -15,4 +15,11 @@ export interface albumType {
     total_tracks: number;
     release_date: string;
   };
+  track?: {
+    name: string;
+  };
+}
+
+export interface trackType {
+  track: albumType;
 }
