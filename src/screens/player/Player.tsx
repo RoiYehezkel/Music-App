@@ -5,6 +5,7 @@ import apiClient from "../../spotify";
 import SongCard from "../../components/songCard/SongCard";
 import Queue from "../../components/queue/Queue";
 import { albumType, trackType } from "../../types/types";
+import AudioPlayer from "../../components/audioPlayer/AudioPlayer";
 
 const Player: React.FC = () => {
   const location = useLocation();
@@ -41,7 +42,9 @@ const Player: React.FC = () => {
 
   return (
     <div className="screen-container flex">
-      <div className="left-player-body"></div>
+      <div className="left-player-body">
+        <AudioPlayer currentTrack={currentTrack} />
+      </div>
       <div className="right-player-body">
         <SongCard album={currentTrack?.album} />
         <Queue tracks={tracks} setCurrentIndex={setCurrentIndex} />
