@@ -17,6 +17,7 @@ export interface albumType {
   };
   track?: {
     name: string;
+    preview_url: string;
   };
 }
 

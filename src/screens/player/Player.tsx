@@ -21,6 +21,7 @@ const Player: React.FC = () => {
     },
     track: {
       name: "",
+      preview_url: "",
     },
   });
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -43,7 +44,12 @@ const Player: React.FC = () => {
   return (
     <div className="screen-container flex">
       <div className="left-player-body">
-        <AudioPlayer currentTrack={currentTrack} />
+        <AudioPlayer
+          currentTrack={currentTrack}
+          currentIndex={currentIndex}
+          setCurrentIndex={setCurrentIndex}
+          total={tracks}
+        />
       </div>
       <div className="right-player-body">
         <SongCard album={currentTrack?.album} />
