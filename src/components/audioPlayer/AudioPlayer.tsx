@@ -22,7 +22,6 @@ const AudioPlayer: React.FC<audioPlayerType> = ({
   const [trackProgress, setTrackProgress] = useState(0);
 
   let audioSrc = total[currentIndex]?.track.preview_url;
-  console.log(total[0]?.track);
 
   const audioRef = useRef(new Audio(total[0]?.track?.preview_url));
 

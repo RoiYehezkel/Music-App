@@ -2,8 +2,13 @@ export interface albumImageType {
   url: string;
 }
 
-interface artistType {
+export interface artistType {
+  id: string;
   name: string;
+  followers: {
+    total: number;
+  };
+  images: albumImageType[];
 }
 
 export interface albumType {
@@ -23,4 +28,18 @@ export interface albumType {
 
 export interface trackType {
   track: albumType;
+}
+
+export interface featuredType {
+  name: string;
+  tracks: {
+    total: number;
+  };
+  images: albumImageType[];
+}
+
+export interface newReleaseType {
+  name: string;
+  artists: artistType[];
+  images: albumImageType[];
 }

@@ -7,23 +7,36 @@ interface buttonProps {
   title: string;
   to: string;
   icon: React.ReactNode;
+  signOutHandler?: () => void;
 }
 
-const SidebarButton: React.FC<buttonProps> = (props) => {
+const SidebarButton: React.FC<buttonProps> = ({
+  title,
+  to,
+  icon,
+  signOutHandler,
+}) => {
   const location = useLocation();
 
-  const isActive = location.pathname === props.to;
+  const isActive = location.pathname === to;
 
   const btnClass = isActive ? "btn-body active" : "btn-body";
 
   return (
-    <Link to={props.to}>
-      <div className={btnClass}>
+    <Link to={to}>
+      <div
+        className={btnClass}
+        onClick={() => {
+          if (signOutHandler) {
+            signOutHandler();
+          }
+        }}
+      >
         <IconContext.Provider value={{ size: "24px", className: "btn-icon" }}>
-          {props.icon}
+          {icon}
         </IconContext.Provider>
 
-        <p className="btn-title">{props.title}</p>
+        <p className="btn-title">{title}</p>
       </div>
     </Link>
   );

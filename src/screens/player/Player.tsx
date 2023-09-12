@@ -6,6 +6,7 @@ import SongCard from "../../components/songCard/SongCard";
 import Queue from "../../components/queue/Queue";
 import { albumType, trackType } from "../../types/types";
 import AudioPlayer from "../../components/audioPlayer/AudioPlayer";
+import Widgets from "../../components/widgets/Widgets";
 
 const Player: React.FC = () => {
   const location = useLocation();
@@ -50,6 +51,7 @@ const Player: React.FC = () => {
           setCurrentIndex={setCurrentIndex}
           total={tracks}
         />
+        <Widgets album={currentTrack} />
       </div>
       <div className="right-player-body">
         <SongCard album={currentTrack?.album} />
