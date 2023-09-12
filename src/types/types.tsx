@@ -17,8 +17,8 @@ export interface albumType {
   };
   track?: {
     name: string;
-    preview_url: string;
   };
+  preview_url?: string;
 }
 
 export interface trackType {

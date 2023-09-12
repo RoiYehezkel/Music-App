@@ -21,9 +21,10 @@ const AudioPlayer: React.FC<audioPlayerType> = ({
   const [isPlaying, setIsPlaying] = useState(false);
   const [trackProgress, setTrackProgress] = useState(0);
 
-  let audioSrc = total[currentIndex]?.track.track?.preview_url;
+  let audioSrc = total[currentIndex]?.track.preview_url;
+  console.log(total[0]?.track);
 
-  const audioRef = useRef(new Audio(total[0]?.track?.track?.preview_url));
+  const audioRef = useRef(new Audio(total[0]?.track?.preview_url));
 
   const isReady = useRef(false);
 
@@ -50,24 +51,32 @@ const AudioPlayer: React.FC<audioPlayerType> = ({
   useEffect(() => {
     if (audioRef.current.src) {
       if (isPlaying) {
-        audioRef.current.play();
-        startTimer();
+        audioRef.current
+          .play()
+          .then(() => {
+            startTimer();
+          })
+          .catch((error) => {});
       } else {
         if (intervalRef.current) {
           clearInterval(intervalRef.current);
+          audioRef.current.pause();
         }
-        audioRef.current.pause();
       }
     } else {
-      if (isPlaying) {
+      if (isPlaying && audioRef.current) {
         audioRef.current = new Audio(audioSrc);
-        audioRef.current.play();
-        startTimer();
+        audioRef.current
+          .play()
+          .then(() => {
+            startTimer();
+          })
+          .catch((error) => {});
       } else {
         if (intervalRef.current) {
           clearInterval(intervalRef.current);
+          audioRef.current.pause();
         }
-        audioRef.current.pause();
       }
     }
   }, [isPlaying, audioSrc]);
@@ -78,10 +87,14 @@ const AudioPlayer: React.FC<audioPlayerType> = ({
 
     setTrackProgress(audioRef.current.currentTime);
 
-    if (isReady.current) {
-      audioRef.current.play();
-      setIsPlaying(true);
-      startTimer();
+    if (isReady.current && audioRef.current) {
+      audioRef.current
+        .play()
+        .then(() => {
+          setIsPlaying(true);
+          startTimer();
+        })
+        .catch((error) => {});
     } else {
       isReady.current = true;
     }
@@ -89,8 +102,8 @@ const AudioPlayer: React.FC<audioPlayerType> = ({
 
   useEffect(() => {
     return () => {
-      audioRef.current.pause();
       if (intervalRef.current) {
+        audioRef.current.pause();
         clearInterval(intervalRef.current);
       }
     };
@@ -99,12 +112,17 @@ const AudioPlayer: React.FC<audioPlayerType> = ({
   const handleNext = () => {
     if (currentIndex < total.length - 1) {
       setCurrentIndex(currentIndex + 1);
-    } else setCurrentIndex(0);
+    } else {
+      setCurrentIndex(0);
+    }
   };
 
   const handlePrev = () => {
-    if (currentIndex - 1 < 0) setCurrentIndex(total.length - 1);
-    else setCurrentIndex(currentIndex - 1);
+    if (currentIndex - 1 < 0) {
+      setCurrentIndex(total.length - 1);
+    } else {
+      setCurrentIndex(currentIndex - 1);
+    }
   };
 
   const addZero = (n: number) => {
@@ -120,7 +138,7 @@ const AudioPlayer: React.FC<audioPlayerType> = ({
     <div className="player-body flex">
       <div className="player-left-body">
         <ProgressCircle
-          percentage={75}
+          percentage={currentPercentage}
           isPlaying={true}
           image={currentTrack?.album?.images[0]?.url}
           size={300}
@@ -132,8 +150,8 @@ const AudioPlayer: React.FC<audioPlayerType> = ({
         <p className="song-artist">{artists.join(" | ")}</p>
         <div className="player-right-bottom flex">
           <div className="song-duration flex">
-            <p className="duration">0:01</p>
-            <WaveAnimation isPlaying={true} />
+            <p className="duration">0:{addZero(Math.round(trackProgress))}</p>
+            <WaveAnimation isPlaying={isPlaying} />
             <p className="duration">0:30</p>
           </div>
           <Controls

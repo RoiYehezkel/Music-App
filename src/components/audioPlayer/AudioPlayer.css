@@ -11,7 +11,7 @@
 .player-right-body {
   width: 63%;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
 }
 

@@ -21,8 +21,8 @@ const Player: React.FC = () => {
     },
     track: {
       name: "",
-      preview_url: "",
     },
+    preview_url: "",
   });
   const [currentIndex, setCurrentIndex] = useState(0);
 
