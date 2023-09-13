@@ -19,15 +19,20 @@ interface playlistType {
 }
 
 const Library: React.FC = () => {
-  const [playlists, setPlaylists] = useState<any>(null);
+  const [playlists, setPlaylists] = useState<playlistType[]>([]);
 
   const navigate = useNavigate();
 
   useEffect(() => {
-    APIKit.get("me/playlists").then((response) => {
-      setPlaylists(response.data.items);
-    });
-  }, []);
+    APIKit.get("me/playlists")
+      .then((response) => {
+        setPlaylists(response.data.items);
+      })
+      .catch((err) => {
+        localStorage.removeItem("token");
+        navigate(0);
+      });
+  }, [navigate]);
 
   const playPlaylist = (id: string) => {
     navigate("/player", { state: { id: id } });
