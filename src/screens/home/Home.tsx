@@ -9,6 +9,7 @@ import "./Home.css";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Login from "../auth/Login";
 import { setClientToken } from "../../spotify";
+import NavBar from "../../components/navbar/NavBar";
 
 const Home: React.FC = () => {
   const [token, setToken] = useState("");
@@ -34,6 +35,7 @@ const Home: React.FC = () => {
     <Router>
       <div className="main-body">
         <Sidebar />
+        {/* <NavBar /> */}
         <Routes>
           <Route path="/" element={<Library />} />
           <Route path="/feed" element={<Feed />} />

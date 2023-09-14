@@ -86,3 +86,16 @@
     height: 45%;
   }
 }
+
+@media only screen and (max-width: 1024px) {
+  .playlist-card {
+    height: 22%;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .playlist-card {
+    width: 50%;
+    height: 30%;
+  }
+}
