@@ -6,4 +6,4 @@ The appis powered by React and TypeScript, this cutting-edge music app harnesses
 
 \*Additional features will be added in the future.
 
-![Screenshot](public/images/preview.png)
+![Screenshot](https://github.com/RoiYehezkel/Music-App/blob/main/public/images/preview.png?raw=true)
