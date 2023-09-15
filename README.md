@@ -5,3 +5,5 @@ The appis powered by React and TypeScript, this cutting-edge music app harnesses
 [Link to website](https://music-app-a37eb.firebaseapp.com/).
 
 \*Additional features will be added in the future.
+
+![Screenshot](public/images/preview.png)
